@@ -11,5 +11,6 @@
 ```code:terminal
 $ heroku login
 $ heroku create app-name
+$ git remote add heroku heroku-git-url
 $ git push heroku main
 ```
