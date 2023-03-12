@@ -6,7 +6,10 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 import os
 import dotenv
 
+from utils.openai import OpenAI
+
 app = FastAPI()
+openai = OpenAI()
 
 dotenv.load_dotenv()
 
@@ -34,5 +37,5 @@ async def webhook(request: Request):
 def handle_text_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        TextSendMessage(text=openai.get_openai_response(event.message.text))
     )
