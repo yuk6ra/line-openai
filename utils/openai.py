@@ -16,6 +16,6 @@ class OpenAI():
             messages=[{"role": "user", "content": content}]
         )
 
-        openai_content = response['choices'][0]["message"]["content"]
+        openai_content = response['choices'][0]["message"]["content"].strip()
 
         return openai_content
