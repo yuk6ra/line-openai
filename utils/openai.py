@@ -9,7 +9,8 @@ openai.api_key = os.getenv("OPEN_AI_KEY")
 
 class OpenAI():
 
-    def get_openai_response(content):
+    def get_openai_response(self, content):
+        
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo", 
             messages=[{"role": "user", "content": content}]
